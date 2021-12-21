@@ -61,7 +61,7 @@ jobs:
           KEYSTORE_STRING: ${{secrets.KEYSTORE_BASE_64}}
         run: |
           FILE_PATH="${GITHUB_WORKSPACE}"/certificates
-          echo KEYSTORE_STRING | base64 -di > "${FILE_PATH}"/keystore.jks
+          echo $KEYSTORE_STRING | base64 -di > "${FILE_PATH}"/keystore.jks
 
       - name: Decode and create Google service key file
         env:
