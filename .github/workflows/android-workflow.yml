@@ -62,7 +62,7 @@ jobs:
           GOOGLE_SERVICE_KEY_BASE_64: ${{secrets.GOOGLE_SERVICE_KEY_BASE_64}}
         run: |
           FILE_PATH="${GITHUB_WORKSPACE}"/app
-          echo GOOGLE_SERVICE_KEY_BASE_64 | base64 -di > "${FILE_PATH}"/google-services.json
+          echo $GOOGLE_SERVICE_KEY_BASE_64 | base64 -di > "${FILE_PATH}"/google-services.json
 
       - name: Build and distribute app
         run: |
