@@ -49,13 +49,19 @@ jobs:
           mkdir "${FILE_PATH}"
           echo $FIREBASE_APP_DISTRIBUTION_KEY_STRING | base64 -di > "${FILE_PATH}"/firebase-app-distribution-key.json
 
-
       - name: Decode and create Playstore app distribution key file
         env:
           PLAY_STORE_KEY_STRING: ${{secrets.FIREBASE_APP_DISTRIBUTION_KEY_BASE_64}}
         run: |
           FILE_PATH="${GITHUB_WORKSPACE}"/certificates
           echo $PLAY_STORE_KEY_STRING | base64 -di > "${FILE_PATH}"/playstore-app-distribution-key.json
+
+      - name: Decode and create keystore file
+        env:
+          KEYSTORE_STRING: ${{secrets.KEYSTORE_BASE_64}}
+        run: |
+          FILE_PATH="${GITHUB_WORKSPACE}"/certificates
+          echo KEYSTORE_STRING | base64 -di > "${FILE_PATH}"/keystore.jks
 
       - name: Decode and create Google service key file
         env:
