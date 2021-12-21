@@ -9,7 +9,7 @@ BUNDLE_FILE_PATH = nil
 UPDATE_VERSION_CODE = nil
 
 before_all do
-  Dotenv.overload('.env.secret')
+
   KEYSTORE_PATH = Dir.pwd + "/../certificates/keystore.jks"
   FIREBASE_KEY_PATH = Dir.pwd + "/../certificates/firebase-app-distribution-key.json"
   PLAYSTORE_KEY_PATH = Dir.pwd + "/../certificates/playstore-app-distribution-key.json"

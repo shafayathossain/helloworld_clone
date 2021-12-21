@@ -65,6 +65,9 @@ jobs:
           echo $GOOGLE_SERVICE_KEY_BASE_64 | base64 -di > "${FILE_PATH}"/google-services.json
 
       - name: Build and distribute app
+        env:
+          KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
         run: |
           export LC_ALL=en_US.UTF-8
           export LANG=en_US.UTF-8
